@@ -8,5 +8,17 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="greeter" class="org.sijin.jdbc.spring.Greeter" />
+	
+	<bean id="memberDao" class="org.sijin.book.example.MemberDao" />
+
+	<bean id="articleService"
+		class="org.sijin.book.example.ArticleService">
+		<property name="memberDao" ref="memberDao" />
+	</bean>
+
+	<bean id="memberService"
+		class="org.sijin.book.example.MemberService">
+		<property name="memberDao" ref="memberDao" />
+	</bean>
 
 </beans>
