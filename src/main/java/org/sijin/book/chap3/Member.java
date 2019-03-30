@@ -1,11 +1,11 @@
 package org.sijin.book.chap3;
 
 public class Member {
-	String memberId; // ì•„ì´ë””
-	String email; // ì´ë©”ì¼
-	String password; // ë¹„ë°€ë²ˆí˜¸
-	String name; // ì´ë¦„
-	String registerDate; // ë“±ë¡ì¼ì‹œ
+	String memberId; // ¾ÆÀÌµğ
+	String email; // ÀÌ¸ŞÀÏ
+	String password; // ºñ¹Ğ¹øÈ£
+	String name; // ÀÌ¸§
+	String registerDate; // µî·ÏÀÏ½Ã
 
 	/**
 	 * Default Constructor
@@ -14,11 +14,11 @@ public class Member {
 	}
 
 	/**
-	 * email, password, name ìœ¼ë¡œ ì´ˆê¸°í™”í•˜ëŠ” ì»¨ìŠ¤íŠ¸ëŸ­í„°
+	 * email, password, name À¸·Î ÃÊ±âÈ­ÇÏ´Â ÄÁ½ºÆ®·°ÅÍ
 	 * 
-	 * @param email ì´ë©”ì¼
-	 * @param password ë¹„ë°€ë²ˆí˜¸
-	 * @param name ì´ë¦„
+	 * @param email ÀÌ¸ŞÀÏ
+	 * @param password ºñ¹Ğ¹øÈ£
+	 * @param name ÀÌ¸§
 	 */
 	public Member(String email, String password, String name) {
 		this.email = email;
@@ -71,5 +71,5 @@ public class Member {
 		return "Member [memberId=" + memberId + ", email=" + email
 				+ ", password=" + password + ", name=" + name
 				+ ", registerDate=" + registerDate + "]";
-	}
+}
 }

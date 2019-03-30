@@ -1,7 +1,6 @@
 package org.sijin.book.chap3;
 
 public class DuplicateMemberException extends RuntimeException {
-
 	public DuplicateMemberException() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,5 +24,5 @@ public class DuplicateMemberException extends RuntimeException {
 			boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
-	}
+}
 }

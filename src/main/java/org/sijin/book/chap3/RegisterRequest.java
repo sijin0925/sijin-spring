@@ -1,9 +1,9 @@
 package org.sijin.book.chap3;
 
 public class RegisterRequest {
-	String email; // ì´ë©”ì¼
-	String password; // ë¹„ë°€ë²ˆí˜¸
-	String name; // ì´ë¦„
+	String email; // ÀÌ¸ŞÀÏ
+	String password; // ºñ¹Ğ¹øÈ£
+	String name; // ÀÌ¸§
 
 	public String getEmail() {
 		return email;

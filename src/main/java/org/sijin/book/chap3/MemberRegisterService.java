@@ -10,36 +10,33 @@ public class MemberRegisterService {
 	static Logger logger = LogManager.getLogger();
 
 	/**
-	 * memberDaoë¥¼ ì´ˆê¸°í™”í•˜ëŠ” ì»¨ìŠ¤íŠ¸ëŸ­í„°
+	 * memberDao¸¦ ÃÊ±âÈ­ÇÏ´Â ÄÁ½ºÆ®·°ÅÍ
 	 */
-	/*public MemberRegisterService(MemberDao memberDao) {
-		this.memberDao = memberDao;
-	}
-	*/
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
 	
+	
 
 	/**
-	 * íšŒì› ë“±ë¡
+	 * È¸¿ø µî·Ï
 	 * 
-	 * @param req ì‚¬ìš©ìê°€ ì…ë ¥í•œ íšŒì› ì •ë³´
-	 * @throws DuplicateMemberException ì´ë©”ì¼ì´ ì¤‘ë³µë  ê²½ìš°ì— ë°œìƒ
+	 * @param req »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ È¸¿ø Á¤º¸
+	 * @throws DuplicateMemberException ÀÌ¸ŞÀÏÀÌ Áßº¹µÉ °æ¿ì¿¡ ¹ß»ı
 	 */
 	public void regist(RegisterRequest req) throws DuplicateMemberException {
 		logger.debug(req);
 		Member member = memberDao.selectByEmail(req.getEmail());
 
-		// íšŒì›ì´ ì´ë¯¸ ì¡´ì¬í•˜ë©´ ì˜ˆì™¸ ë°œìƒ
+		// È¸¿øÀÌ ÀÌ¹Ì Á¸ÀçÇÏ¸é ¿¹¿Ü ¹ß»ı
 		if (member != null) {
-			throw new DuplicateMemberException("ì´ë©”ì¼ ì¤‘ë³µ " + req.getEmail());
+			throw new DuplicateMemberException("ÀÌ¸ŞÀÏ Áßº¹ " + req.getEmail());
 		}
 
-		// íšŒì›ì •ë³´ ì €ì¥
+		// È¸¿øÁ¤º¸ ÀúÀå
 		Member newMember = new Member(req.getEmail(), req.getPassword(),
 				req.getName());
 		memberDao.insert(newMember);
-		logger.debug("íšŒì› ì •ë³´ë¥¼ ì €ì¥í–ˆìŠµë‹ˆë‹¤.");
+		logger.debug("È¸¿ø Á¤º¸¸¦ ÀúÀåÇß½À´Ï´Ù.");
 	}
 }

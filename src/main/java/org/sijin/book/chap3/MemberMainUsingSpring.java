@@ -13,9 +13,9 @@ public class MemberMainUsingSpring {
 
 		// registerRequest 초기화
 		RegisterRequest req = new RegisterRequest();
-		req.setEmail("jacob@irafe.com");
+		req.setEmail("feeldyd2@gmail.com");
 		req.setPassword("xxxx");
-		req.setName("Jacob");
+		req.setName("feeldyd2");
 
 		// 회원 등록
 		regService.regist(req);

@@ -4,24 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MemberDao {
-
+	Map<String,Member> map=new HashMap<>();
 	/**
-	 *  íšŒì›ì •ë³´ ë§µ (íšŒì› í…Œì´ë¸”)
+	 * ÀÌ¸ŞÀÏ·Î È¸¿ø Á¤º¸ °¡Á®¿È
 	 */
-	Map<String, Member> map = new HashMap<>();
-
-	/**
-	 * ì´ë©”ì¼ë¡œ íšŒì› ì •ë³´ ê°€ì ¸ì˜´
-	 */
+	
 	public Member selectByEmail(String email) {
 		return map.get(email);
 	}
 
 	/**
-	 * íšŒì›ì •ë³´ ì €ì¥
+	 * È¸¿øÁ¤º¸ ÀúÀå
 	 */
 	public void insert(Member member) {
 		map.put(member.getEmail(), member);
-	}
+}
 	
 }
