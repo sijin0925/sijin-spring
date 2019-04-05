@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.sijin.book.chap3.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,12 @@ import org.springframework.stereotype.Service;
  * 
  * @author Jacob
  */
-@Repository
+@Service
 public class MemberService {
 
 	Logger logger = LogManager.getLogger();
-
-	MemberDao memberDao = null;
+	@Autowired
+	MemberDao memberDao;
 
 	/**
 	 * memberDao setter for injection
@@ -42,7 +43,7 @@ public class MemberService {
 
 	public void insertMember() {
 		Member member = new Member();
-		member.setEmail("feeldyd2@naver.com");
+		member.setEmail("feeldyd211@naver.com");
 		member.setPassword("0925");
 		member.setName("김시진");
 		memberDao.insert(member);
