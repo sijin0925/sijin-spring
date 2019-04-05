@@ -3,6 +3,12 @@ package org.sijin.book.chap3;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * p.55 [ë¦¬ìŠ¤íŠ¸ 3.1] MemberRegisterService ìˆ˜ì •<br>
+ * íšŒì›ì„ ë“±ë¡í•˜ëŠ” ì„œë¹„ìŠ¤
+ * 
+ * @author Jacob
+ */
 public class MemberRegisterService {
 
 	private MemberDao memberDao;
@@ -10,33 +16,31 @@ public class MemberRegisterService {
 	static Logger logger = LogManager.getLogger();
 
 	/**
-	 * memberDao¸¦ ÃÊ±âÈ­ÇÏ´Â ÄÁ½ºÆ®·°ÅÍ
+	 * memberDaoë¥¼ ì´ˆê¸°í™”í•˜ëŠ” ì»¨ìŠ¤íŠ¸ëŸ­í„°
 	 */
-	public void setMemberDao(MemberDao memberDao) {
+	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-	
-	
 
 	/**
-	 * È¸¿ø µî·Ï
+	 * íšŒì› ë“±ë¡
 	 * 
-	 * @param req »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ È¸¿ø Á¤º¸
-	 * @throws DuplicateMemberException ÀÌ¸ŞÀÏÀÌ Áßº¹µÉ °æ¿ì¿¡ ¹ß»ı
+	 * @param req ì‚¬ìš©ìê°€ ì…ë ¥í•œ íšŒì› ì •ë³´
+	 * @throws DuplicateMemberException ì´ë©”ì¼ì´ ì¤‘ë³µë  ê²½ìš°ì— ë°œìƒ
 	 */
 	public void regist(RegisterRequest req) throws DuplicateMemberException {
 		logger.debug(req);
 		Member member = memberDao.selectByEmail(req.getEmail());
 
-		// È¸¿øÀÌ ÀÌ¹Ì Á¸ÀçÇÏ¸é ¿¹¿Ü ¹ß»ı
+		// íšŒì›ì´ ì´ë¯¸ ì¡´ì¬í•˜ë©´ ì˜ˆì™¸ ë°œìƒ
 		if (member != null) {
-			throw new DuplicateMemberException("ÀÌ¸ŞÀÏ Áßº¹ " + req.getEmail());
+			throw new DuplicateMemberException("ì´ë©”ì¼ ì¤‘ë³µ " + req.getEmail());
 		}
 
-		// È¸¿øÁ¤º¸ ÀúÀå
+		// íšŒì›ì •ë³´ ì €ì¥
 		Member newMember = new Member(req.getEmail(), req.getPassword(),
 				req.getName());
 		memberDao.insert(newMember);
-		logger.debug("È¸¿ø Á¤º¸¸¦ ÀúÀåÇß½À´Ï´Ù.");
+		logger.debug("íšŒì› ì •ë³´ë¥¼ ì €ì¥í–ˆìŠµë‹ˆë‹¤.");
 	}
 }
