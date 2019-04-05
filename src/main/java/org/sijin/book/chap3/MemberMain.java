@@ -5,6 +5,7 @@ public class MemberMain {
 		MemberDao memberDao = new MemberDao();
 		MemberRegisterService regService = new MemberRegisterService(memberDao);
 
+		// registerRequest 초기화
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail("feeldyd2@naver.com");
 		req.setPassword("1234");
